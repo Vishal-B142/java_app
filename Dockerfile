@@ -1,14 +1,13 @@
-# Use OpenJDK 17 slim as the base image
-FROM openjdk:17-jdk-slim
+# Use official Tomcat image as base
+FROM tomcat:10.1-jdk17-temurin
 
-# Set working directory
-WORKDIR /app
+# Set working directory (optional)
+WORKDIR /usr/local/tomcat/webapps/
 
-# Copy the application JAR file
-COPY target/my-java-app.jar app.jar
+# Copy the WAR file into Tomcat's webapps directory
+COPY target/test-0.0.1-SNAPSHOT.war test.war
 
-# Expose the application port (adjust if needed)
+# Expose Tomcat's default port
 EXPOSE 8080
 
-# Run the app
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Tomcat runs automatically, so no need for ENTRYPOINT
