@@ -8,6 +8,6 @@ WORKDIR /usr/local/tomcat/webapps/
 COPY target/test-0.0.1-SNAPSHOT.war test.war
 
 # Expose Tomcat's default port
-EXPOSE 8080
+EXPOSE 9090
 
 # Tomcat runs automatically, so no need for ENTRYPOINT
